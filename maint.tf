@@ -7,56 +7,20 @@ terraform {
   }
 
   required_version = ">= 1.2.0"
+
+  cloud { 
+    
+    organization = "FIAP-7SOAT-51" 
+
+    workspaces { 
+      name = "quick-serve-infra-db" 
+    } 
+  } 
 }
 
 provider "aws" {
   region = "us-east-1"
 }
-
-#resource "aws_instance" "app_server" {
-#  ami           = "ami-0e86e20dae9224db8"
-#  instance_type = var.instance_type
-#
-#  tags = {
-#    Name = "Fiap Primeira Instância"
-#  }
-#
-#  key_name = "iac-fiap"
-#}
-
-#resource "aws_vpc" "vpc_prd" {
-#  cidr_block           = "10.0.0.0/16"
-#  enable_dns_hostnames = true
-#}
-#
-#resource "aws_subnet" "public_subnet_a" {
-#  vpc_id            = aws_vpc.vpc_prd.id
-#  cidr_block        = "10.0.1.0/24"
-#  availability_zone = "us-east-1a"
-#}
-#
-#resource "aws_subnet" "public_subnet_b" {
-#  vpc_id            = aws_vpc.vpc_prd.id
-#  cidr_block        = "10.0.2.0/24"
-#  availability_zone = "us-east-1b"
-#}
-#
-#resource "aws_subnet" "private_subnet_a" {
-#  vpc_id            = aws_vpc.vpc_prd.id
-#  cidr_block        = "10.0.3.0/24"
-#  availability_zone = "us-east-1a"
-#}
-#
-#resource "aws_subnet" "private_subnet_b" {
-#  vpc_id            = aws_vpc.vpc_prd.id
-#  cidr_block        = "10.0.4.0/24"
-#  availability_zone = "us-east-1b"
-#}
-#
-#resource "aws_db_subnet_group" "db_subnet" {
-#  name       = "db_subnet"
-#  subnet_ids = [aws_subnet.private_subnet_a.id, aws_subnet.private_subnet_b.id]
-#}
 
 resource "aws_security_group" "postgres_sg" {
   name = "postgres_sg"
