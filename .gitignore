@@ -45,3 +45,4 @@ terraform.rc
 
 # Ignore VSCode settings
 .vscode
+fiap_accessKeys.csv
