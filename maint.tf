@@ -2,24 +2,26 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.16"
+      version = "~> 5.48.0"
     }
   }
 
-  required_version = ">= 1.2.0"
-
-  cloud {
-
-    organization = "FIAP-7SOAT-51"
-
-    workspaces {
-      name = "quick-serve-infra-db"
-    }
-  }
+  # Using Terraform Cloud
+  #
+  #required_version = ">= 1.2.0"
+  #cloud {
+  #  organization = "FIAP-7SOAT-51"
+  #  workspaces {
+  #    name = "quick-serve-infra-db"
+  #  }
+  #}
 }
 
 provider "aws" {
   region = "us-east-1"
+  #access_key = ""
+  #secret_key = ""
+  #token = ""
 }
 
 resource "aws_vpc" "main" {
