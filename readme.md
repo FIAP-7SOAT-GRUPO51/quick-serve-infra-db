@@ -7,3 +7,5 @@ GitHub account
 HCP Terraform account
 
 AWS account
+
+Testando terraform cloud
